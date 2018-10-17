@@ -24,11 +24,18 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-app.use(myConnection(mysql, {
+/*app.use(myConnection(mysql, {
 	host: 'localhost',
 	user: 'root',
 	password: '',
 	database: 'miturista'
+}, 'single'));*/
+
+app.use(myConnection(mysql, {
+	host: 'sql138.main-hosting.eu.',
+	user: 'u868365439_turis',
+	password: '123456',
+	database: 'u868365439_turis'
 }, 'single'));
 
 
