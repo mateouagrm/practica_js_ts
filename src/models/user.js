@@ -21,12 +21,7 @@ controller.insertUsers = (req, res) =>{
       email: req.body.email,
       password: req.body.password
      };
-      res.json({
-          	status: 'true',
-          	msg: 'insertado correctamente ok',
-          	data: userData
-       })
-   /*req.getConnection((err, conn) => {
+   req.getConnection((err, conn) => {
     conn.query('insert into cliente set ?', [userData], (err, data) =>{
       console.log(data);
         if (data && data.insertId) {
@@ -44,7 +39,7 @@ controller.insertUsers = (req, res) =>{
           })
      	}
     });
-   });*/
+   });
 
 };
 
