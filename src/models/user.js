@@ -27,7 +27,7 @@ controller.insertUsers = (req, res) =>{
         if (data && data.insertId) {
         console.log(data);
           res.json({
-          	status: true,
+          	status: 'true',
           	msg: 'insertado correctamente ok',
           	data: data
           })
