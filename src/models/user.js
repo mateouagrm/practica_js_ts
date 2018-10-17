@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'miturista'
+	host: 'sql138.main-hosting.eu.',
+	user: 'u868365439_turis',
+	password: '123456',
+	database: 'u868365439_turis'
 });
 
 let userModel = {};
