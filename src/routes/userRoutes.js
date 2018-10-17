@@ -4,7 +4,7 @@ const router = express.Router();
 const customerController = require('../models/user');
 
 router.get('/users', customerController.users);
-//router.post('/insertUsers', customerController.save);
+router.post('/insertUsers', customerController.insertUsers);
 //router.get('/delete/:id', customerController.delete);
 //router.get('/update/:id', customerController.update);
 //router.post('/update/:id', customerController.edit);
@@ -19,11 +19,6 @@ module.exports = router;
 
 module.exports = function (app) {
   
-  app.get('/users', (req, res) =>{
-   User.getUsers((err, data) => {
-     res.status(200).json(data);
-   });
-  });
 
   app.post('/insertUsers', (req, res) =>{
      const userData = {

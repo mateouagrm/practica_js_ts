@@ -12,51 +12,38 @@ controller.users = (req, res) =>{
 	});
 };
 
+controller.insertUsers = (req, res) =>{
+    const userData = {
+      id: null,
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      telefono: req.body.telefono,
+      email: req.body.email,
+      password: req.body.password
+     };
+   req.getConnection((err, conn) => {
+    conn.query('insert into cliente set ?', [userData], (err, data) =>{
+      console.log(data);
+        if (data && data.insertId) {
+        console.log(data);
+          res.json({
+          	status: true,
+          	msg: 'insertado correctamente ok',
+          	data: data
+          })
+     	}else{
+          res.json({
+          	status: false,
+          	msg: 'error',
+          	data: err
+          })
+     	}
+    });
+   });
+
+};
+
+
 module.exports = controller
 
-/*const mysql = require('mysql');
 
-connection = mysql.createConnection({
-	host: 'sql138.main-hosting.eu.',
-	user: 'u868365439_turis',
-	password: '123456',
-	database: 'u868365439_turis'
-});*/
-
-/*let userModel = {};
-
-userModel.getUsers =(callback) => {
-	if (connection) {
-		connection.query(
-		 'select * from cliente order by id',
-		 (err, rows) =>{
-           if (err) {
-           	throw err;
-           }else{
-           	callback(null, rows);
-           }
-		 }
-		)
-	}
-};
-
-
-userModel.insertUser =(userData, callback) => {
-	if (connection) {
-		connection.query(
-		 'insert into cliente set ?', userData,
-		 (err, result) =>{
-           if (err) {
-           	throw err;
-           }else{
-           	callback(null, {
-           		'insertId': result.insertId
-           	});
-           }
-		 }
-		)
-	}
-};
-
-
-module.exports = userModel;*/

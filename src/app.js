@@ -25,10 +25,10 @@ app.use((req, res, next) => {
     next();
 });
 app.use(myConnection(mysql, {
-	host: 'sql138.main-hosting.eu.',
-	user: 'u868365439_turis',
-	password: '123456',
-	database: 'u868365439_turis'
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'miturista'
 }, 'single'));
 
 
