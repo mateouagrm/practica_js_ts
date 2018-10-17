@@ -23,7 +23,7 @@ module.exports = function (app) {
         console.log(data);
           res.json({
           	status: true,
-          	msg: 'insertado correctamente',
+          	msg: 'insertado correctamente ok',
           	data: data
           })
      	}else{
