@@ -1,13 +1,29 @@
-const mysql = require('mysql');
+const controller = {};
+
+controller.users = (req, res) =>{
+	req.getConnection((err, conn) =>{
+       conn.query('select * from cliente order by id', (err, data) =>{
+       	  if (err) {
+       	  	 res.json(err);
+       	  }else{
+            res.status(200).json(data);
+       	  }
+       });
+	});
+};
+
+module.exports = controller
+
+/*const mysql = require('mysql');
 
 connection = mysql.createConnection({
 	host: 'sql138.main-hosting.eu.',
 	user: 'u868365439_turis',
 	password: '123456',
 	database: 'u868365439_turis'
-});
+});*/
 
-let userModel = {};
+/*let userModel = {};
 
 userModel.getUsers =(callback) => {
 	if (connection) {
@@ -43,4 +59,4 @@ userModel.insertUser =(userData, callback) => {
 };
 
 
-module.exports = userModel;
+module.exports = userModel;*/

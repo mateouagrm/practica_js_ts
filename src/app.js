@@ -4,9 +4,14 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
+const mysql = require('mysql');
+const myConnection = require('express-myconnection');
+
 var server = require('http').Server(app);
 
 var	port = process.env.PORT || 3000;
+
+const customerRoutes = require('./routes/userRoutes');
 
 //middlewares
 app.use(morgan('dev'));
@@ -19,12 +24,16 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-
-
+app.use(myConnection(mysql, {
+	host: 'sql138.main-hosting.eu.',
+	user: 'u868365439_turis',
+	password: '123456',
+	database: 'u868365439_turis'
+}, 'single'));
 
 
 //routes
-require('./routes/userRoutes')(app);
-
+//require('./routes/userRoutes')(app);
+app.use('/', customerRoutes);
 
 server.listen( port, () => console.log('Iniciando Express y Socket.IO en localhost:%d', port) );
