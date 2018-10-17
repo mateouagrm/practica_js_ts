@@ -22,7 +22,7 @@ controller.insertUsers = (req, res) =>{
       password: req.body.password
      };
       res.json({
-          	status: true,
+          	status: 'true',
           	msg: 'insertado correctamente ok',
           	data: userData
        })
