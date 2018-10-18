@@ -3,6 +3,7 @@ const controller = {};
 controller.users = (req, res) =>{
 	req.getConnection((err, conn) =>{
        conn.query('select * from usuario where tipoCliente="si" order by id', (err, data) =>{
+       	  console.log(data);
        	  if (err) {
        	  	 res.json(err);
        	  }else{
@@ -43,6 +44,66 @@ controller.insertUsersCliente = (req, res) =>{
           	data: err
           })
      	}
+    });
+   });
+
+};
+
+controller.ingresar = (req, res) =>{
+    const userData = {
+      email: req.body.email,
+      password: req.body.password
+     };
+  req.getConnection((err, conn) => {
+    conn.query('select * from usuario where email=? and password=? and tipoCliente="si"', [userData.email,userData.password], (err, data) =>{
+       	  console.log(data);
+       	  if (err) {
+       	  	 res.json(err);
+       	  }else{
+       	   if (Object.entries(data).length === 0) {
+              res.json({
+	          	status: 'false',
+	          	msg: 'email o contraseña incorrectos'
+	          });
+       	   }else{
+       	   	  res.json({
+	          	status: 'true',
+	          	msg: 'ok',
+	          	data: data
+	          })
+       	   }
+           
+       	  }
+    });
+   });
+
+};
+
+controller.ingresarConductor = (req, res) =>{
+    const userData = {
+      email: req.body.email,
+      password: req.body.password
+     };
+  req.getConnection((err, conn) => {
+    conn.query('select * from usuario where email=? and password=? and tipoConductor="si"', [userData.email,userData.password], (err, data) =>{
+       	  console.log(data);
+       	  if (err) {
+       	  	 res.json(err);
+       	  }else{
+       	   if (Object.entries(data).length === 0) {
+              res.json({
+	          	status: 'false',
+	          	msg: 'email o contraseña incorrectos'
+	          });
+       	   }else{
+       	   	  res.json({
+	          	status: 'true',
+	          	msg: 'ok',
+	          	data: data
+	          })
+       	   }
+           
+       	  }
     });
    });
 

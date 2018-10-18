@@ -40,7 +40,6 @@ app.use(myConnection(mysql, {
 
 
 //routes
-//require('./routes/userRoutes')(app);
 app.use('/', customerRoutes);
 
 server.listen( port, () => console.log('Iniciando Express y Socket.IO en localhost:%d', port) );

@@ -5,7 +5,8 @@ const customerController = require('../models/user');
 
 router.get('/users', customerController.users);
 router.post('/insertUsers', customerController.insertUsersCliente);
-//router.get('/delete/:id', customerController.delete);
+router.post('/ingresar', customerController.ingresar);
+router.post('/ingresarConductor', customerController.ingresarConductor);
 //router.get('/update/:id', customerController.update);
 //router.post('/update/:id', customerController.edit);
 
