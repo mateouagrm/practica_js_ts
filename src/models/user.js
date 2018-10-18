@@ -2,7 +2,7 @@ const controller = {};
 
 controller.users = (req, res) =>{
 	req.getConnection((err, conn) =>{
-       conn.query('select * from cliente order by id', (err, data) =>{
+       conn.query('select * from usuario order by id', (err, data) =>{
        	  if (err) {
        	  	 res.json(err);
        	  }else{
@@ -12,7 +12,7 @@ controller.users = (req, res) =>{
 	});
 };
 
-controller.insertUsers = (req, res) =>{
+/*controller.insertUsers = (req, res) =>{
     const userData = {
       id: null,
       nombre: req.body.nombre,
@@ -41,7 +41,7 @@ controller.insertUsers = (req, res) =>{
     });
    });
 
-};
+};*/
 
 
 module.exports = controller
