@@ -2,7 +2,7 @@ const controller = {};
 
 controller.users = (req, res) =>{
 	req.getConnection((err, conn) =>{
-       conn.query('select * from usuario order by id', (err, data) =>{
+       conn.query('select * from usuario where tipoCliente=si order by id', (err, data) =>{
        	  if (err) {
        	  	 res.json(err);
        	  }else{
@@ -12,17 +12,22 @@ controller.users = (req, res) =>{
 	});
 };
 
-/*controller.insertUsers = (req, res) =>{
+controller.insertUsersCliente = (req, res) =>{
     const userData = {
       id: null,
+      ci: 0,
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       telefono: req.body.telefono,
+      direccion: 'null',
+      foto: 'null',
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      tipoCliente: 'si',
+      tipoConductor: 'no'
      };
    req.getConnection((err, conn) => {
-    conn.query('insert into cliente set ?', [userData], (err, data) =>{
+    conn.query('insert into usuario set ?', [userData], (err, data) =>{
       console.log(data);
         if (data && data.insertId) {
         console.log(data);
@@ -41,7 +46,7 @@ controller.users = (req, res) =>{
     });
    });
 
-};*/
+};
 
 
 module.exports = controller
