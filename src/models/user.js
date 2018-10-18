@@ -12,7 +12,7 @@ controller.users = (req, res) =>{
 	});
 };
 
-controller.insertUsers = (req, res) =>{
+/*controller.insertUsers = (req, res) =>{
     const userData = {
       id: null,
       nombre: req.body.nombre,
@@ -41,7 +41,7 @@ controller.insertUsers = (req, res) =>{
     });
    });
 
-};
+};*/
 
 
 module.exports = controller
