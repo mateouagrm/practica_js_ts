@@ -2,7 +2,7 @@ const controller = {};
 
 controller.users = (req, res) =>{
 	req.getConnection((err, conn) =>{
-       conn.query('select * from usuario where tipoCliente=si order by id', (err, data) =>{
+       conn.query('select * from usuario where tipoCliente="si" order by id', (err, data) =>{
        	  if (err) {
        	  	 res.json(err);
        	  }else{
