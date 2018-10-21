@@ -13,6 +13,7 @@ var	port = process.env.PORT || 3000;
 
 const customerRoutes = require('./routes/userRoutes');
 
+const path = require('path');
 //middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +25,9 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
+
+app.use(express.static(path.join(__dirname,'public')));
+
 /*app.use(myConnection(mysql, {
 	host: 'localhost',
 	user: 'root',

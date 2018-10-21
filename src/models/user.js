@@ -17,9 +17,9 @@ controller.insertUsersCliente = (req, res) =>{
     const userData = {
       id: null,
       ci: 0,
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      telefono: req.body.telefono,
+      nombre: 'null',
+      apellido: 'null',
+      telefono: 'null',
       direccion: 'null',
       foto: 'null',
       email: req.body.email,
