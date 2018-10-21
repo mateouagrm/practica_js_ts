@@ -34,7 +34,7 @@ controller.insertUsersCliente = (req, res) =>{
         console.log(data);
           res.json({
           	status: 'true',
-          	msg: 'insertado correctamente ok',
+          	msg: 'insertado correctamente',
           	data: data
           })
      	}else{
