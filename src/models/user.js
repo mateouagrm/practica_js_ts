@@ -145,6 +145,33 @@ controller.pedirMovil = (req, res) =>{
 };
 
 
+controller.pedirMovilId = (req, res) =>{
+   const { id } = req.params;
+  req.getConnection((err, conn) => {
+    conn.query('select * from solicitud where id=? and estado="enviado"', [id], (err, data) =>{
+          console.log(data);
+          if (err) {
+             res.json(err);
+          }else{
+           if (Object.entries(data).length === 0) {
+              res.json({
+              status: 'true',
+              msg: 'correcto'
+            });
+           }else{
+              res.json({
+              status: 'false',
+              msg: 'ya ha enviado una solicitud "revise pedidos en procesos"'
+            })
+           }
+           
+          }
+    });
+   });
+
+};
+
+
 module.exports = controller
 
 

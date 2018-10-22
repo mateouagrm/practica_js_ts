@@ -8,7 +8,7 @@ router.post('/insertUsersCliente', customerController.insertUsersCliente);
 router.post('/ingresar', customerController.ingresar);
 router.post('/ingresarConductor', customerController.ingresarConductor);
 router.post('/pedirMovil', customerController.pedirMovil);
-//router.get('/update/:id', customerController.update);
+router.get('/pedirMovilId/:id', customerController.pedirMovilId);
 //router.post('/update/:id', customerController.edit);
 
 
