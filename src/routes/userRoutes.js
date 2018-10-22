@@ -7,7 +7,7 @@ router.get('/users', customerController.users);
 router.post('/insertUsersCliente', customerController.insertUsersCliente);
 router.post('/ingresar', customerController.ingresar);
 router.post('/ingresarConductor', customerController.ingresarConductor);
-router.post('/pedirMovil', customerController.pedirMovil);
+//router.post('/pedirMovil', customerController.pedirMovil);
 //router.get('/update/:id', customerController.update);
 //router.post('/update/:id', customerController.edit);
 
