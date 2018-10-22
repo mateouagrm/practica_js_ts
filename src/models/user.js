@@ -161,7 +161,7 @@ controller.pedirMovilId = (req, res) =>{
            }else{
               res.json({
               status: 'false',
-              msg: 'ya ha enviado una solicitud "revise pedidos en procesos"'
+              msg: 'ya ha enviado una solicitud "revise pedidos en procesos si su servicio ha sido aceptado"'
             });
            }
            
