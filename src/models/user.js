@@ -124,7 +124,7 @@ controller.pedirMovil = (req, res) =>{
      };
             res.json({
               status: 'true',
-              msg: 'email o contraseña incorrectos ok',
+              msg: 'email o contraseña incorrectos',
               data:userData
             });
  /* req.getConnection((err, conn) => {
