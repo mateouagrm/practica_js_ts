@@ -113,8 +113,8 @@ controller.ingresarConductor = (req, res) =>{
 controller.pedirMovil = (req, res) =>{
     const userData = {
       id: null,
-      fecha:'0-21-2514',
-      hora: '40:30',
+      fecha: req.body.fecha,
+      hora: req.body.hora,
       lat_origen: req.body.lat_origen,
       lon_origen: req.body.lon_origen,
       lat_destino: req.body.lat_destino,
