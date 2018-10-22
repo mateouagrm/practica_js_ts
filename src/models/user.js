@@ -117,7 +117,7 @@ controller.pedirMovil = (req, res) =>{
       hora: '40:30',
       lat_origen: req.body.lat_origen,
       lon_origen: req.body.lon_origen,
-      lat_detino: req.body.lat_detino,
+      lat_destino: req.body.lat_destino,
       lon_destino: req.body.lon_destino,
       estado: req.body.estado,
       id_cliente: req.body.id_cliente
