@@ -122,33 +122,25 @@ controller.pedirMovil = (req, res) =>{
       estado: req.body.estado,
       id_cliente: req.body.id_cliente
      };
-            res.json({
-              status: 'true',
-              msg: 'email o contraseña incorrectos',
-              data:userData
-            });
- /* req.getConnection((err, conn) => {
-    conn.query('select * from usuario where email=? and password=? and tipoCliente="si"', [userData.email,userData.password], (err, data) =>{
-          console.log(data);
-          if (err) {
-             res.json(err);
-          }else{
-           if (Object.entries(data).length === 0) {
-              res.json({
-              status: 'false',
-              msg: 'email o contraseña incorrectos'
-            });
-           }else{
-              res.json({
-              status: 'true',
-              msg: 'ok',
-              data: data
-            })
-           }
-           
-          }
+   req.getConnection((err, conn) => {
+    conn.query('insert into solicitud set ?', [userData], (err, data) =>{
+      console.log(data);
+        if (data && data.insertId) {
+        console.log(data);
+          res.json({
+            status: 'true',
+            msg: 'insertado correctamente',
+            data: data
+          })
+      }else{
+          res.json({
+            status: false,
+            msg: 'error',
+            data: err
+          })
+      }
     });
-   });*/
+   });
 
 };
 
