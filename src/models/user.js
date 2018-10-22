@@ -110,6 +110,49 @@ controller.ingresarConductor = (req, res) =>{
 };
 
 
+controller.pedirMovil = (req, res) =>{
+    const userData = {
+      id: null,
+      fecha:'0-21-2514',
+      hora: '40:30'
+      lat_origen: req.body.lat_origen,
+      lon_origen: req.body.lon_origen,
+      lat_detino: req.body.lat_detino,
+      lon_destino: req.body.lon_destino,
+      estado: req.body.estado,
+      id_cliente: req.body.id_cliente
+     };
+            res.json({
+              status: 'true',
+              msg: 'email o contraseña incorrectos',
+              data:userData
+            });
+ /* req.getConnection((err, conn) => {
+    conn.query('select * from usuario where email=? and password=? and tipoCliente="si"', [userData.email,userData.password], (err, data) =>{
+          console.log(data);
+          if (err) {
+             res.json(err);
+          }else{
+           if (Object.entries(data).length === 0) {
+              res.json({
+              status: 'false',
+              msg: 'email o contraseña incorrectos'
+            });
+           }else{
+              res.json({
+              status: 'true',
+              msg: 'ok',
+              data: data
+            })
+           }
+           
+          }
+    });
+   });*/
+
+};
+
+
 module.exports = controller
 
 
