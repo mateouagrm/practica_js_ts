@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const app = express();
 
 const morgan = require('morgan');
@@ -16,6 +17,11 @@ const customerRoutes = require('./routes/userRoutes');
 const path = require('path');
 //middlewares
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname,'public')));
+/*==================================================
+app.use(fileUpload()) para subir imagen al servidor
+===================================================*/
+app.use(fileUpload());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -26,7 +32,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(path.join(__dirname,'public')));
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname,'views'));
 
 /*app.use(myConnection(mysql, {
 	host: 'localhost',
